@@ -15,7 +15,6 @@ const Cart = () => {
 
   const cartItems = useSelector((state) => state.cart.items);
   const dispatch = useDispatch();
-  const token = localStorage.getItem("token");
   const [cartTotal, setCartTotal] = useState(0);
 
   // Calculate total cost for all cart items
@@ -40,7 +39,11 @@ const Cart = () => {
       dispatch(removeCartItem(index));
 
       // Then make the API call (optional, depends on your backend)
-      await axios.post(API.REMOVE_FROM_CART, { index }, {withCredentials:true} );
+      await axios.post(
+        API.REMOVE_FROM_CART,
+        { index },
+        { withCredentials: true }
+      );
     } catch (error) {
       console.error("Error removing item from cart", error);
     }
@@ -58,7 +61,8 @@ const Cart = () => {
         {
           amount: totalCost,
           cartItems: cartItems,
-        },{withCredentials:true}
+        },
+        { withCredentials: true }
       );
 
       const { sessionId } = response.data;
