@@ -10,6 +10,7 @@ import Header from "./components/Header";
 import PDFDropzone from "./components/PDFDropzone";
 import PdfPreview from "./components/PdfPreview";
 import { pdfjs } from "react-pdf";
+import Tic from "./components/Tic";
 // ...other imports and code
 
 // Helper: Modified to return a File for cart use
@@ -169,7 +170,7 @@ function App() {
   return (
     <>
       <Header />
-      <div className="flex justify-evenly items-start pt-[2rem]">
+      {/* <div className="flex justify-evenly items-start pt-[2rem]">
         <div className="flex w-[100%] justify-center gap-10 items-start">
           {!file && (
             <div className="max-w-2xl p-8">
@@ -223,7 +224,8 @@ function App() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
+      <Tic />
     </>
   );
 }
